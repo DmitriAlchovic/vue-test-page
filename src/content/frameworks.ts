@@ -1,0 +1,25 @@
+export default [{
+  id: 1,
+  title: 'Vue js',
+  body: 'Vue.js is an open source JavaScript framework for creating user interfaces. It is easily integrated into projects using other JavaScript libraries. It can function as a web framework for developing single-page applications in a reactive style.',
+  image: 'vue.png',
+  link: '',
+  linkTitle: 'Schedule a Meeting',
+},
+{
+  id: 2,
+  title: 'React js',
+  body: 'React is an open source JavaScript library for developing user interfaces. Instagram Facebook, React is developed and supported by a community of individual developers and corporations. React can be used to develop single-page and mobile applications.',
+  image: 'react.png',
+  link: '',
+  linkTitle: 'Schedule a Meeting',
+},
+{
+  id: 3,
+  title: 'Angular js',
+  body: 'AngularJS is an open source JavaScript framework. Designed for the development of single-page applications. Its goal is to expand browser applications based on the MVC template, as well as simplify testing and development.',
+  image: 'angular.png',
+  link: '',
+  linkTitle: 'Schedule a Meeting',
+},
+];

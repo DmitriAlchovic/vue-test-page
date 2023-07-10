@@ -1,27 +1,117 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+  <NavBar />
+  <MainBanner />
+  <AboutCard />
+  <FrameworksList></FrameworksList>
+  <ApplicationsList />
+  <ContactForm />
+  <MainFooter />
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import HelloWorld from './components/HelloWorld.vue';
+import NavBar from './components/NavBar.vue';
+import MainBanner from './components/MainBanner.vue';
+import AboutCard from './components/AboutCard.vue';
+import FrameworksList from './components/FrameworksList.vue';
+import ApplicationsList from './components/ApplicationsList.vue';
+import ContactForm from './components/ContactForm.vue';
+import MainFooter from './components/MainFooter.vue';
 
-@Options({
+export default {
   components: {
-    HelloWorld,
+    NavBar,
+    MainBanner,
+    AboutCard,
+    FrameworksList,
+    ApplicationsList,
+    ContactForm,
+    MainFooter,
   },
-})
-export default class App extends Vue {}
+  data() {
+    return {
+    };
+  },
+  methods: {
+  },
+};
+
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+* {
+  margin: 0;
+  font-family: 'Gothic A1';
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden !important;
+    background-color: #F5F7FA;
+  }
+
+  .container {
+    max-width: none;
+  }
+
+  @media (max-width:1440px) {
+    .container {}
+  }
+
+  @media (max-width:992px) {
+    .container {}
+  }
+
+  @media (max-width:767px) {
+    .container {}
+  }
+
+  .category-title {
+    font-weight: 700;
+    font-size: 1.75rem;
+    text-align: center;
+  }
+
+  .btn-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 26.4rem;
+    padding: 1rem 0;
+    flex-wrap: wrap;
+  }
+
+  label {
+    color: #3D3D3D;
+    font-family: Gothic A1;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    margin: 1.4rem 0;
+    flex-wrap: wrap;
+  }
+
+  .img-container {
+    position: relative;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+  }
+
+  img {
+    object-fit: cover;
+    height: inherit;
+    width: inherit;
+  }
+
+  .centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 </style>
