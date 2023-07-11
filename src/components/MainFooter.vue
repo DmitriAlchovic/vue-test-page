@@ -5,12 +5,14 @@
 export default {};
 </script>
 <style lang="scss">
+@import '../variables.scss';
+
 .footer-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #3D3D3D;
-    color:#fff;
+    background: $c-dark-grey;
+    color: $c-white;
     height: 7.8rem;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
-  <div class="background" v-if="show" @click.stop="toggleShow" @keydown.stop="toggleShow">
+  <div class="background" v-if="show" @click="toggleShow" @keydown="toggleShow">
   </div>
-  <div @click.stop v-if="show" class="dropdown-content">
+  <div v-if="show" @click="toggleShow" @keydown="toggleShow" class="dropdown-content">
     <slot></slot>
   </div>
 </template>

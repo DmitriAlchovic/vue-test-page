@@ -8,6 +8,8 @@
 export default {};
 </script>
 <style lang="scss">
+@import '../variables.scss';
+
 .banner-container {
     display: flex;
     flex-flow: column;
@@ -17,14 +19,15 @@ export default {};
     background-image: url("../assets/banner.png");
     background-size:cover;
     width: 100vw;
+    padding-top: 5rem;
     .banner-title{
         font-size: 4.8vw;
-        color: #fff;
-        font-weight: 700;
+        color: $c-white;
+        font-weight: $f-w-bold;
     }
     .banner-body{
         font-size: 2.5vw;
-        color: #fff;
+        color: $c-white;
     }
 }
 </style>

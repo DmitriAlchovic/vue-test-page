@@ -5,7 +5,7 @@
     class="article-card-container"
     v-for="(framework, index) in frameworks"
     :key="framework.id">
-      <FrameworkCard :article="framework" :is-odd="index % 2 == 0" />
+      <ArticleCard :article="framework" :is-odd="index % 2 == 0" />
     </div>
     <div class="article-card-container">
         <SmallArticleCard v-for="article in smallArticles" :key="article.id" :article="article" />
@@ -15,11 +15,11 @@
 <script lang="ts">
 import frameworksArr from '../content/frameworks';
 import smallArticleArr from '../content/small-article';
-import FrameworkCard from './FrameworkCard.vue';
+import ArticleCard from './ArticleCard.vue';
 import SmallArticleCard from './SmallArticleCard.vue';
 
 export default {
-  components: { FrameworkCard, SmallArticleCard },
+  components: { ArticleCard, SmallArticleCard },
   data() {
     return {
       frameworks: frameworksArr,

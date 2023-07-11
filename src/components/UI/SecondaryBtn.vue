@@ -7,16 +7,18 @@
 export default { name: 'secondary-btn' };
 </script>
 <style lang="scss">
+@import '../../variables.scss';
+
 .secondary-btn {
-  background-color: #fff;
+  background-color: $c-white;
   border: none;
   cursor: pointer;
   height: 2.5rem;
   width: 12.5rem;
   border-radius: 0.6rem;
-  color: #000;
+  color: $c-black;
   font-size: 1rem;
-  border: 1px solid #71A3FF;
+  border: 1px solid $c-light-blue;
   margin: 5px 0;
 
   &:hover {
@@ -25,7 +27,7 @@ export default { name: 'secondary-btn' };
 
   &:active {
     transform: scale(0.95);
-    border: solid 0.2rem #71A3FF;
+    border: solid 0.2rem $c-light-blue;
   }
 }
 </style>

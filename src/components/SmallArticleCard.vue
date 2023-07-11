@@ -22,11 +22,13 @@ export default {
 };
 </script>
 <style lang="scss">
+@import '../variables.scss';
+
 .small-article-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #fff;
+  background: $c-white;
   flex-wrap: wrap;
   position: relative;
 
@@ -44,7 +46,7 @@ export default {
 
     .small-article-title {
       font-size: 1.5rem;
-      font-weight: 700;
+      font-weight: $f-w-bold;
       margin-bottom: 0.56rem;
     }
 

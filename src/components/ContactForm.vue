@@ -1,46 +1,147 @@
 <template>
   <div class="form-container">
   <div class="category-title">Contact Us</div>
-    <form class="contact-form">
+    <form class="contact-form" @submit.prevent="handleSubmit">
       <label for="first-name">First Name*
-        <input class="contact-input" placeholder="Enter Your First Name" id="first-name" />
+        <input
+        class="contact-input"
+        type="text"
+        name="firstName"
+        :value="form.firstName"
+        @input="handlerChange"
+        required
+        placeholder="Enter Your First Name"
+        id="first-name"
+        />
       </label>
       <label for="last-name">Last Name*
-        <input class="contact-input" placeholder="Enter Your Last Name" id="last-name" />
+        <input
+        class="contact-input"
+        name="lastName"
+        :value="form.lastName"
+        type="text"
+        required
+        placeholder="Enter Your Last Name"
+        id="last-name" />
       </label>
       <label for="company">Company*
-        <input class="contact-input" placeholder="Enter Your Company" id="company" />
+        <input
+        class="contact-input"
+        name="company"
+        :value="form.company"
+        type="text"
+        required
+        placeholder="Enter Your Company"
+        id="company" />
       </label>
       <label for="email">Email*
-        <input class="contact-input" placeholder="Enter Your Email" id="email" />
+        <input
+        class="contact-input"
+        type="email"
+        name="email"
+        :value="form.email"
+        required
+        placeholder="Enter Your Email"
+        id="email" />
       </label>
       <label for="job-title">Job Title*
-        <input class="contact-input" placeholder="Enter Your Job Title" id="job-title" />
+        <input class="contact-input"
+        required
+        name="jobTitle"
+        :value="form.jobTitle"
+        type="text"
+        placeholder="Enter Your Job Title"
+        id="job-title" />
       </label>
       <label for="country">Country
-        <input class="contact-input" placeholder="Enter Your Country" id="country" />
+        <input
+        class="contact-input"
+        name="country"
+        :value="form.country"
+        placeholder="Enter Your Country"
+        id="country" />
       </label>
       <label for="state">State*
-        <input class="contact-input" placeholder="Enter Your State" id="state" />
+        <input
+        class="contact-input"
+        name="state"
+        :value="form.state"
+        required
+        placeholder="Enter Your State"
+        id="state" />
       </label>
       <label for="zip-code">Zip code*
-        <input class="contact-input" placeholder="Enter Your Zip Code" id="zip-code" />
+        <input
+        class="contact-input"
+        name="zipCode"
+        :value="form.zipCode"
+        required
+        placeholder="Enter Your Zip Code"
+        id="zip-code" />
       </label>
+      <div>
+      <div class="message-success">{{ toastMessage.text }}</div>
+      <input type="submit" class="primary-btn" name="submit" id="submit">
+      </div>
     </form>
-  <div class="centered">
-    <primary-btn>Submit</primary-btn>
-  </div>
   </div>
 </template>
 <script lang="ts">
+import { defineComponent, ref } from 'vue';
 
-export default {};
+const formDefault = {
+  firstName: '',
+  lastName: '',
+  company: '',
+  email: '',
+  jobTitle: '',
+  country: '',
+  state: '',
+  zipCode: '',
+};
+
+export default defineComponent({
+  setup() {
+    const toast = ref(null);
+    return { toast };
+  },
+  data() {
+    return {
+      toastMessage: { text: '', isShown: false, isFailed: false },
+      form: formDefault,
+    };
+  },
+  methods: {
+    handleSubmit() {
+      try {
+        this.showMessage('Success!', false);
+        this.form = formDefault;
+      } catch (error) {
+        if (error instanceof Error) {
+          this.showMessage(error.message, true);
+        }
+      }
+    },
+    showMessage(text: string, error: boolean) {
+      this.toastMessage = { text, isShown: true, isFailed: error };
+      setTimeout(() => {
+        this.toastMessage = { ...this.toastMessage, isShown: false, text: '' };
+      }, 3000);
+    },
+    handlerChange(event:Event) {
+      const element = event.target as HTMLInputElement;
+      this.form = { ...this.form, [element.name]: element.value };
+    },
+  },
+});
 
 </script>
 <style lang="scss">
+@import '../variables.scss';
+
 .form-container {
-  padding: 3.7rem 0;
-  background-color: #fff;
+  padding: 3.7rem 8vw;
+  background-color: $c-white;
 
   .contact-form {
     display: flex;
@@ -52,11 +153,18 @@ export default {};
 
     .contact-input {
       border-radius: 10px;
-      background: #F8F8F8;
+      background: $c-bg-secondary;
       height: 2.5rem;
       margin: 0 0.4rem;
       border:none;
     }
+  }
+  .message-success {
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $c-light-green;
   }
 }
 </style>
