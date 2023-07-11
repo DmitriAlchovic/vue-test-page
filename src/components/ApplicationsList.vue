@@ -25,6 +25,7 @@ export default {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 0 0.2vw;
+  margin: 0 8vw;
+  max-width: 80vw;
 }
 </style>

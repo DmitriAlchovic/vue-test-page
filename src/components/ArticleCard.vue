@@ -27,6 +27,8 @@ export default {
 };
 </script>
 <style lang="scss">
+@import '../variables.scss';
+
 .article-container {
   position: relative;
   display: flex;
@@ -34,7 +36,7 @@ export default {
   justify-content: space-between;
   max-width: 74.75rem;
   border-radius: 5px;
-  background: #FFF;
+  background: $c-white;
   flex-wrap: wrap;
 }
 
@@ -44,7 +46,7 @@ export default {
   justify-content: space-between;
   max-width: 74.75rem;
   border-radius: 5px;
-  background: #FFF;
+  background: $c-white;
   flex-wrap: wrap;
 }
 

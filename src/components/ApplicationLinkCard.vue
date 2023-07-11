@@ -16,6 +16,8 @@ export default {
 
 </script>
 <style lang="scss">
+@import '../variables.scss';
+
 .app-link-container {
   display: flex;
   justify-content: center;
@@ -33,8 +35,8 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
-    background-color: #3D3D3D;
+    color: $c-white;
+    background-color: $c-dark-grey;
     width: 100%;
     font-size: 1rem;
     max-height: 2.37rem;
